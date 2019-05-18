@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "./App.css";
-// import auth from "./base";
-import { auth as dbAuth } from "./base";
+import React, { Component } from 'react';
+import './App.css';
+import { auth as dbAuth } from './base';
+import WithStyleExample from './WithStyleExample';
 
 class Authenticate extends Component {
   state = {
-    account: "",
-    password: "",
+    account: '',
+    password: '',
     isCreate: false
   };
   toggleRegister = () => {
@@ -26,11 +26,14 @@ class Authenticate extends Component {
     this.props.login(this.state.account, this.state.password);
   };
 
+  handleLoginSocial = () => this.props.loginSocial('Facebook')
+
   render() {
-    let isCreate = this.state.isCreate;
+    let {isCreate} = this.state;
+
     return (
       <div>
-        {isCreate ? "註冊" : "登入"}
+        {isCreate ? '註冊' : '登入'}
         <hr />
         <div>
           <label> 帳號 </label>
@@ -48,14 +51,14 @@ class Authenticate extends Component {
         <br />
         <button
           className="facebook"
-          onClick={() => this.props.loginSocial("Facebook")}
+          onClick={this.handleLoginSocial}
         >
           Facebook 登入
         </button>
 
         <br />
         <button onClick={this.toggleRegister}>
-          {isCreate ? "已有帳號? 登入" : "第一次使用? 註冊去"}
+          {isCreate ? '已有帳號? 登入' : '第一次使用? 註冊去'}
         </button>
       </div>
     );
@@ -85,7 +88,7 @@ class App extends Component {
   }
 
   authHandler = async authData => {
-    console.log("authHandler, authData=", authData);
+    console.log('authHandler, authData=', authData);
     this.setState({
       uid: authData.user.uid,
       name: authData.user.displayName || authData.user.email
@@ -105,7 +108,7 @@ class App extends Component {
   };
 
   logout = async () => {
-    console.log("logout!");
+    console.log('logout!');
     await dbAuth.signOut();
     this.setState({ uid: null, name: null });
   };
@@ -123,6 +126,8 @@ class App extends Component {
           ) : (
             <MainPage logout={this.logout} name={this.state.name} />
           )}
+          <WithStyleExample text="hello1" />
+          <WithStyleExample text="hello2" />
         </header>
       </div>
     );

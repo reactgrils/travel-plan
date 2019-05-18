@@ -1,14 +1,24 @@
 // import Rebase from "re-base";
 import firebase from "firebase";
 
+const {
+  REACT_APP_FIREBASE_API_KEY,
+  REACT_APP_FIREBASE_AUTH_DOMAIN,
+  REACT_APP_FIREBASE_DATABASE_URL,
+  REACT_APP_FIREBASE_PROJECT_ID,
+  REACT_APP_FIREBASE_APP_ID,
+  REACT_APP_FIREBASE_STORAGE_BUCKET,
+  REACT_APP_FIREBASE_MESSAGEING_SENDER_ID,
+} = process.env;
+
 const firebaseApp = firebase.initializeApp({
-  apiKey: "AIzaSyCIpdGXO_YDWExaSS16_pX7-6Ooe2-UgK0",
-  authDomain: "travel-plan-f05d1.firebaseapp.com",
-  databaseURL: "https://travel-plan-f05d1.firebaseio.com",
-  projectId: "travel-plan-f05d1",
-  storageBucket: "travel-plan-f05d1.appspot.com",
-  messagingSenderId: "1055376360468",
-  appId: "1:1055376360468:web:8055249da726af79"
+  apiKey: REACT_APP_FIREBASE_API_KEY,
+  authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: REACT_APP_FIREBASE_MESSAGEING_SENDER_ID,
+  appId: REACT_APP_FIREBASE_APP_ID
 });
 
 export const auth = {
