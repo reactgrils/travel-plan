@@ -14,7 +14,7 @@ pipeline:
       - /drone/src/github.com/reactgrils/travel-plan
     when:
       branch: master
-      event: [pull_request]
+      event: [push]
 
   ssh:
     image: appleboy/drone-ssh
@@ -36,4 +36,4 @@ pipeline:
       - rm -rf /root/drone
     when:
       branch: master
-      event: [pull_request]
+      event: [push]
