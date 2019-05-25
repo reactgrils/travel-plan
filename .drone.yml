@@ -2,38 +2,36 @@ pipeline:
   scp:
     image: appleboy/drone-scp
     pull: true
-    settings:
-      host: 
-        - travel-plan.tomas.website
-      port: 22
-      username: root
-      user: root
-      password:
-        from_secret: ssh_password
-      target: /root
-      source:
-        - /drone/src/github.com/reactgrils/travel-plan
-      when:
-        branch: master
+    host: 
+      - travel-plan.tomas.website
+    port: 22
+    username: root
+    user: root
+    password:
+      from_secret: ssh_password
+    target: /root
+    source:
+      - /drone/src/github.com/reactgrils/travel-plan
+    when:
+      branch: master
 
   ssh:
     image: appleboy/drone-ssh
-    settings:
-      host: 
-        - travel-plan.tomas.website
-      username: root
-      user: root
-      password:
-          from_secret: ssh_password
-      command_timeout: 600
-      script:
-        - . /root/.nvm/nvm.sh && nvm use 10.9.0
-        - mkdir -p /var/www/html/travel-plan.tomas.website
-        - cd /root/drone/src/github.com/reactgrils/travel-plan
-        - yarn install
-        - yarn build
-        - cp -a build/* /var/www/html/travel-plan.tomas.website
-        - cd /root
-        - rm -rf /root/drone
-      when:
-        branch: master
+    host: 
+      - travel-plan.tomas.website
+    username: root
+    user: root
+    password:
+        from_secret: ssh_password
+    command_timeout: 600
+    script:
+      - . /root/.nvm/nvm.sh && nvm use 10.9.0
+      - mkdir -p /var/www/html/travel-plan.tomas.website
+      - cd /root/drone/src/github.com/reactgrils/travel-plan
+      - yarn install
+      - yarn build
+      - cp -a build/* /var/www/html/travel-plan.tomas.website
+      - cd /root
+      - rm -rf /root/drone
+    when:
+      branch: master
