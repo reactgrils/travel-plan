@@ -7,12 +7,14 @@ pipeline:
     port: 22
     username: root
     user: root
-    secrets: [ ssh_password ]
+    password:
+      from_secret: [ssh_password]
     target: /root
     source:
       - /drone/src/github.com/reactgrils/travel-plan
     when:
       branch: master
+      event: [pull_request]
 
   ssh:
     image: appleboy/drone-ssh
@@ -20,7 +22,8 @@ pipeline:
       - travel-plan.tomas.website
     username: root
     user: root
-    secrets: [ ssh_password ]
+    password:
+      from_secret: [ssh_password]
     command_timeout: 600
     script:
       - . /root/.nvm/nvm.sh && nvm use 10.9.0
@@ -33,3 +36,4 @@ pipeline:
       - rm -rf /root/drone
     when:
       branch: master
+      event: [pull_request]
