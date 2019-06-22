@@ -22,7 +22,6 @@
     "test:CI": "CI=true react-scripts test --color --reporters=default --reporters=jest-junit --coverage --coverageDirectory=output/coverage/jest",
     "eject": "react-scripts eject"
   },
-
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -35,27 +34,15 @@
       "jest-junit"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
   ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
@@ -66,7 +53,6 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "gulp": "^4.0.2",
-    "gulp-scp2": "^0.2.0",
-    "jest-junit": "^6.4.0"
+    "gulp-scp2": "^0.2.0"
   }
 }
