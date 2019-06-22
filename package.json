@@ -53,6 +53,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "gulp": "^4.0.2",
-    "gulp-scp2": "^0.2.0"
+    "gulp-scp2": "^0.2.0",
+    "jest-junit": "^6.4.0"
   }
 }
